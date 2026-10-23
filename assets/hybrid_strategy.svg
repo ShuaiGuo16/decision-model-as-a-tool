@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1060" viewBox="0 0 1440 1060" role="img" aria-labelledby="title description">
+  <title id="title">Decision Model as a Tool</title>
+  <desc id="description">An LLM agent delegates a task to a specialist tool. Inside the tool, Python prepares evidence and available actions for a decision model, executes the selected backend function, and collects its result. The cycle repeats until the decision model chooses done. The tool returns evidence to the agent, which responds to the user.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M1 1 L9 5 L1 9" fill="none" stroke="#777972" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: 'Segoe UI', Arial, sans-serif; fill: #242622; }
+      .title { font-size: 44px; font-weight: 650; }
+      .lane { stroke: #a4a69f; stroke-width: 1.7; stroke-dasharray: 6 7; }
+      .head { stroke: #969b94; stroke-width: 1.5; }
+      .name { font-size: 29px; font-weight: 600; }
+      .role { font-size: 21px; fill: #5e645d; }
+      .activation { stroke: #919a90; stroke-width: 1.6; }
+      .message { stroke: #777972; stroke-width: 1.8; fill: none; marker-end: url(#arrow); }
+      .return { stroke-dasharray: 7 5; }
+      .label { font-size: 27px; text-anchor: middle; paint-order: stroke; stroke: #fcfbf8; stroke-width: 7px; stroke-linejoin: round; }
+      .inside { stroke: #f0f8f3; }
+      .loop-label { font-size: 23px; font-weight: 600; fill: #31594a; }
+      .detail { font-size: 24px; fill: #58645c; }
+    </style>
+  </defs>
+  <rect width="1440" height="1060" fill="#efede5"/>
+  <text class="title" x="720" y="62" text-anchor="middle">Decision Model as a Tool</text>
+  <rect x="20" y="86" width="1400" height="954" rx="20" fill="#fcfbf8"/>
+  <rect x="610" y="395" width="780" height="350" rx="9" fill="#f0f8f3" stroke="#a8c3b0" stroke-width="1.8" stroke-dasharray="8 5"/>
+  <line class="lane" x1="110" y1="198" x2="110" y2="1010"/>
+  <line class="lane" x1="370" y1="198" x2="370" y2="1010"/>
+  <line class="lane" x1="680" y1="198" x2="680" y2="1010"/>
+  <line class="lane" x1="960" y1="198" x2="960" y2="1010"/>
+  <line class="lane" x1="1280" y1="198" x2="1280" y2="1010"/>
+  <rect class="head" x="45" y="116" width="130" height="82" rx="7" fill="#deedf7"/>
+  <text class="name" x="110" y="165" text-anchor="middle">User</text>
+  <rect class="head" x="265" y="116" width="210" height="82" rx="7" fill="#f5cbb9"/>
+  <text class="name" x="370" y="151" text-anchor="middle">Agent</text>
+  <text class="role" x="370" y="180" text-anchor="middle">LLM</text>
+  <rect class="head" x="560" y="116" width="240" height="82" rx="7" fill="#d8eee1"/>
+  <text class="name" x="680" y="151" text-anchor="middle">Specialist tool</text>
+  <text class="role" x="680" y="180" text-anchor="middle">Python</text>
+  <rect class="head" x="855" y="116" width="210" height="82" rx="7" fill="#e4dbf0"/>
+  <text class="name" style="font-size:26px" x="960" y="151" text-anchor="middle">Decision model</text>
+  <text class="role" x="960" y="180" text-anchor="middle">Selection</text>
+  <rect class="head" x="1170" y="116" width="220" height="82" rx="7" fill="#e8e6db"/>
+  <text class="name" x="1280" y="151" text-anchor="middle">Backend</text>
+  <text class="role" x="1280" y="180" text-anchor="middle">Functions</text>
+  <rect class="activation" x="104" y="273" width="12" height="712" fill="#b8d5ea"/>
+  <rect class="activation" x="364" y="273" width="12" height="77" fill="#dc9171"/>
+  <rect class="activation" x="364" y="910" width="12" height="75" fill="#dc9171"/>
+  <rect class="activation" x="674" y="350" width="12" height="560" fill="#a9d8bd"/>
+  <rect class="activation" x="954" y="497" width="12" height="53" fill="#bda9d7"/>
+  <rect class="activation" x="954" y="795" width="12" height="52" fill="#bda9d7"/>
+  <rect class="activation" x="1274" y="607" width="12" height="53" fill="#d1cfbf"/>
+  <rect x="611" y="396" width="450" height="38" rx="7" fill="#dfefe4"/>
+  <text class="loop-label" x="630" y="423">Repeat: select → execute → observe</text>
+  <path class="message" d="M116 273 H359"/>
+  <text class="label" x="240" y="263">User request</text>
+  <path class="message" d="M376 350 H669"/>
+  <text class="label" x="525" y="332">Delegate task</text>
+  <path class="message" d="M686 497 H949"/>
+  <text class="label inside" x="820" y="455">Question + evidence</text>
+  <text class="label inside" x="820" y="483">+ choices</text>
+  <path class="message return" d="M954 550 H691"/>
+  <text class="label inside" x="820" y="534">Selected operation</text>
+  <path class="message" d="M686 607 H1269"/>
+  <text class="label inside" x="980" y="591">Execute backend function</text>
+  <path class="message return" d="M1274 660 H691"/>
+  <text class="label inside" x="980" y="644">Source records</text>
+  <path class="message" d="M686 795 H949"/>
+  <text class="label" x="820" y="779">Evidence + choices</text>
+  <path class="message return" d="M954 847 H691"/>
+  <text class="label" x="820" y="831">done</text>
+  <path class="message return" d="M674 910 H381"/>
+  <text class="label" x="525" y="894">Source evidence</text>
+  <path class="message return" d="M364 982 H121"/>
+  <text class="label" x="240" y="967">Response</text>
+</svg>
